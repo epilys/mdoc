@@ -1,0 +1,32 @@
+[package]
+name = "mdoc"
+version = "0.0.0"
+description = "mdoc generation library"
+license = "EUPL-1.2 OR GPL-3.0-or-later"
+repository = "https://github.com/epilys/mdoc"
+homepage = "https://github.com/epilys/mdoc"
+documentation = "https://docs.rs/mdoc"
+readme = "README.md"
+categories = ["development-tools::testing"]
+keywords = ["cli", "man", "mdoc", "mandoc"]
+edition = "2021"
+include = [
+  "build.rs",
+  "src/**/*",
+  "Cargo.toml",
+  "LICENSE*",
+  "README.md",
+  "benches/**/*",
+  "examples/**/*"
+]
+
+[dependencies]
+clap = { optional = true, version = "4.5.11", features = ["derive"] }
+
+[dev-dependencies]
+duct = "0.13"
+pretty_assertions = "1.3.0"
+
+[features]
+default = ["clap"]
+clap = ["dep:clap"]
